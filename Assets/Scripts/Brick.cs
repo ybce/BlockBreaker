@@ -4,6 +4,7 @@ using System.Collections;
 public class Brick : MonoBehaviour {
 	public int max_hits = 0;
 	private int times_hit;
+	public BreakerController breakerController;
 	// Use this for initialization
 	void Start () {
 		times_hit = 0;
@@ -14,6 +15,7 @@ public class Brick : MonoBehaviour {
 
 		times_hit++;
 		if (times_hit == max_hits) {
+			breakerController.detectDestruction();
 			Destroy(this.gameObject);
 		}
 	}
